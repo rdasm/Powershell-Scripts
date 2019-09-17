@@ -1,0 +1,5 @@
+/*Put a list of hostnames here. one per line without space. Remove this line*/ 
+
+Hostname1
+Hostname2
+Hostname3
