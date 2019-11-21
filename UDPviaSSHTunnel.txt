@@ -1,0 +1,11 @@
+
+
+At Server.foo.com
+mkfifo /tmp/fifo
+sudo nc -l -u -p 53 < /tmp/fifo | nc localhost 1337 > /tmp/fifo
+
+
+At client
+ssh -L 1337:localhost:1337 server.foo.com
+mkfifo /tmp/fifo
+nc -l -p 1337 < /tmp/fifo | nc -u 192.168.1.1 53 > /tmp/fifo
