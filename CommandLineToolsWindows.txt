@@ -1,0 +1,14 @@
+
+From display name to email in a domain
+
+dsquery user -name "Last, First" | dsget user -email
+dsquery user -name "first last" | dsget user -display
+dsquery user -name "first last" | dsget user -upn
+
+from SamAccountname to other details
+net user /domain SamAccountname
+
+
+From Email to user details
+DSQUERY * domainroot -filter "(&(objectCategory=Person)(objectClass=User)(mail=user@example.com))" -attr sAMAccountName
+
