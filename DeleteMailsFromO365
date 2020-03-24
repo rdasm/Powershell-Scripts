@@ -1,0 +1,9 @@
+ 
+AllowBasic parameter as 1 in Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client
+winrm set winrm/config/client/auth @{Basic="true"}
+Create e-discovery search with name "whateveryouwanttosearchfor" in protection.office.com 
+Open Microsoft Exchange Online Powershell Module. 
+Connect-IPPSSession -UserPrincipalName rdasm@emailaddressdomain.com
+New-ComplianceSearchAction -SearchName “whateveryouwanttosearchfor” -Preview | Select-Object *
+New-ComplianceSearchAction -SearchName “whateveryouwanttosearchfor” -Purge -PurgeType SoftDelete
+Get-ComplianceSearchAction “whateveryouwanttosearchfor_Purge”
