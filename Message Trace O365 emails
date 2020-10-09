@@ -1,0 +1,21 @@
+If you do not have message trace option enabled in GUI in O365 security/compliance or you do not have exchange ECP access
+
+
+AllowBasic parameter as 1 in Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client
+
+winrm set winrm/config/client/auth @{Basic="true"}
+
+Create e-discovery search with name "whateveryouwanttosearchfor" in protection.office.com 
+
+Open Microsoft Exchange Online Powershell Module. 
+
+Connect-IPPSSession -UserPrincipalName rdasm@emailaddressdomain.com
+
+
+Get-MessageTrace  -SenderAddress rdasm@badexample.com -StartDate "01/23/2018 12:00:01 AM" -EndDate "02/07/2018 11:59:59 PM" -PageSize 5000 -Page 1 | Export-csv c:\users\rdasm\Desktop\test.csv 
+
+OR
+
+Get-MessageTrace  -SenderAddress rdasm@badexample.com -StartDate "01/23/2018 12:00:01 AM" -EndDate "02/07/2018 11:59:59 PM" -PageSize 5000 -Page 1 | where {_.RecipientAddress -notlike "*@example.com.au"} | Export-csv c:\users\rdasm\Desktop\test.csv  
+
+
