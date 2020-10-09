@@ -1,0 +1,6 @@
+
+
+Connect-EXOPSSession -UserPrincipalName yourO365ID@something.com
+
+
+New-ComplianceSearch -Name "Search test Report" -ExchangeLocation all -ContentMatchQuery 'sent>=05/01/2019 AND sent<=06/12/2019 AND subject:"WhateverYourSearchSubjectIs"' 
