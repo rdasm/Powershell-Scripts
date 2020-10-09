@@ -1,0 +1,23 @@
+ 
+Local AD 
+
+get-distributiongroup 
+
+get-distributiongroupmember  
+
+get-distributiongroupmember randomgroup@exampledomain.com | Select DisplayName,Manager,PrimarySmtpAddress,Company,City | Export-csv c:\users\rdasm\desktop\test.csv -NoTypeInformation 
+
+
+============
+
+O365
+
+Search-UnifiedAuditLog -StartDate "02/16/2018 12:00:01 AM" -EndDate "02/23/2018 11:59:59 PM" -Userids username@exampledomainname.com | Export-csv c:\users\rdasm\Desktop\test.csv 
+
+Get-AuditLogSearch -Type admin | Export-csv c:\users\rdasm\Desktop\test.csv 
+
+$Perms = Get-ManagementRole -cmdlet Get-AuditLogSearch 
+
+$Perms | foreach {Get-ManagementRoleAssignment -Role $_.Name -Delegating $false | Format-Table -Auto Role,RoleAssigneeType,RoleAssigneeName} 
+
+ 
